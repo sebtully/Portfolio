@@ -11,7 +11,7 @@ export const projects: Project[] = [
     description:
       'Webapp til booking af services med kalenderintegration, notifikationer og admin-panel.',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/sebtully/padel-opponent-finder.git'
+    githubUrl: 'https://github.com/sebtully/CRM2026.git'
   },
   {
     title: 'Madplan Generator',
@@ -32,6 +32,6 @@ export const projects: Project[] = [
     description:
       'Webapp til booking af services med kalenderintegration, notifikationer og admin-panel.',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/sebtully/padel-opponent-finder.git'
+    githubUrl: 'https://github.com/sebtully/Padel-Opponent-Finder-App.git'
   },
 ];
