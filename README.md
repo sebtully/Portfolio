@@ -1,7 +1,5 @@
 # Developer Portfolio (Next.js)
 
-En professionel, minimalistisk portfolio bygget med:
-
 - Next.js (App Router)
 - React.js
 - TypeScript
@@ -31,8 +29,3 @@ npm run dev
 3. Build command: `npm run build`
 4. Output: automatisk fra Next.js
 
-## Tilpasning
-
-- Redigér navn og tekst i `components/*`
-- Opdatér projekter i `data/projects.ts`
-- Opdatér metadata i `app/layout.tsx`

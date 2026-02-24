@@ -14,7 +14,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
-      className="mx-auto w-full max-w-6xl px-6 py-14 md:py-16"
+      className="section-shell py-14 md:py-16"
     >
       <h2 className="section-title">Udvalgte projekter</h2>
       <p className="section-subtitle">

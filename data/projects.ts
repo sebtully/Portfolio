@@ -7,11 +7,18 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: 'CRM Dashboard',
+    description:
+      'Webapp til booking af services med kalenderintegration, notifikationer og admin-panel.',
+    techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/sebtully/padel-opponent-finder.git'
+  },
+  {
     title: 'Madplan Generator',
     description:
       'Dashboard med authentication, analytics widgets og rollebaseret adgangskontrol til B2B-kunder.',
-    techStack: ['React','TypeScript', 'CSS', 'JavaScript'],
-    githubUrl: 'https://github.com/din-bruger/saas-dashboard'
+    techStack: ['Next.js','TypeScript', 'CSS', 'JavaScript'],
+    githubUrl: 'https://github.com/sebtully/madplan.git'
   },
   {
     title: 'Barber Booking System',
@@ -21,17 +28,10 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sebtully/frisor-booking-system.git'
   },
   {
-    title: 'Booking Platform',
+    title: 'Padel Opponent Finder',
     description:
       'Webapp til booking af services med kalenderintegration, notifikationer og admin-panel.',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/din-bruger/booking-platform'
+    githubUrl: 'https://github.com/sebtully/padel-opponent-finder.git'
   },
-  {
-    title: 'Content Platform',
-    description:
-      'Headless CMS-drevet platform med SSR/ISR, SEO-optimering og performance tuning.',
-    techStack: ['Next.js App Router', 'Sanity', 'Framer Motion'],
-    githubUrl: 'https://github.com/din-bruger/content-platform'
-  }
 ];

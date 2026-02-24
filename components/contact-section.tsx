@@ -13,7 +13,7 @@ export function ContactSection() {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.2 }}
-      className="mx-auto w-full max-w-6xl px-6 py-14 md:py-16"
+      className="section-shell py-14 md:py-16"
     >
       <h2 className="section-title">Kontakt</h2>
       <p className="section-subtitle">

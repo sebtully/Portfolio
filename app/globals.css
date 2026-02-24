@@ -28,6 +28,10 @@ body {
   @apply bg-background text-foreground antialiased;
 }
 
+.section-shell {
+  @apply mx-auto w-full max-w-6xl px-6;
+}
+
 .section-title {
   @apply relative inline-block text-2xl font-bold md:text-3xl;
 }

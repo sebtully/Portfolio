@@ -8,7 +8,7 @@ type HeroSectionProps = {
 
 export function HeroSection({ onShowProjects }: HeroSectionProps) {
   return (
-    <section id="top" className="mx-auto flex min-h-[72vh] w-full max-w-6xl items-center px-6 py-16 md:py-20">
+    <section id="top" className="section-shell flex min-h-[72vh] items-center py-16 md:py-20">
       <div className="max-w-3xl">
         <motion.p
           initial={{ opacity: 0, y: 14 }}
