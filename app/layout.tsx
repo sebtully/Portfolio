@@ -6,25 +6,25 @@ import { ThemeScript } from '@/components/theme-script';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Din Navn | Frontend Developer Portfolio',
+  title: 'Sebastian Tully Schmidt | Full Stack-Udvikler Portfolio',
   description:
     'Professionel portfolio med moderne webprojekter i Next.js, React, TypeScript og Tailwind CSS.',
-  keywords: ['frontend developer', 'portfolio', 'next.js', 'react', 'typescript', 'tailwind'],
-  authors: [{ name: 'Din Navn' }],
-  creator: 'Din Navn',
+  keywords: ['Full Stack-Udvikler', 'portfolio', 'next.js', 'react', 'typescript', 'tailwind'],
+  authors: [{ name: 'Sebastian Tully Schmidt' }],
+  creator: 'Sebastian Tully Schmidt',
   metadataBase: new URL('https://example.vercel.app'),
   openGraph: {
-    title: 'Din Navn | Frontend Developer',
+    title: 'Sebastian Tully Schmidt | Full Stack-Udvikler',
     description:
       'Se udvalgte projekter, teknologier og kontaktinformation til jobsamarbejde.',
     url: 'https://example.vercel.app',
-    siteName: 'Din Navn Portfolio',
+    siteName: 'Sebastian Tully Schmidt Portfolio',
     locale: 'da_DK',
     type: 'website'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Din Navn | Frontend Developer',
+    title: 'Sebastian Tully Schmidt | Full Stack-Udvikler',
     description:
       'Portfolio bygget med Next.js, React, TypeScript og Tailwind - klar til deployment på Vercel.'
   }

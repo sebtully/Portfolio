@@ -7,18 +7,18 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'SaaS Dashboard',
+    title: 'Madplan Generator',
     description:
       'Dashboard med authentication, analytics widgets og rollebaseret adgangskontrol til B2B-kunder.',
-    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma'],
+    techStack: ['React','TypeScript', 'CSS', 'JavaScript'],
     githubUrl: 'https://github.com/din-bruger/saas-dashboard'
   },
   {
-    title: 'E-commerce Frontend',
+    title: 'Barber Booking System',
     description:
-      'Responsivt webshop-interface med filtrering, produktsider og checkout flow med fokus på konvertering.',
-    techStack: ['React', 'Next.js', 'Stripe', 'Zustand'],
-    githubUrl: 'https://github.com/din-bruger/ecommerce-frontend'
+      'Streamlines operations by automating tasks like appointment confirmation,sending reminders to reduce no-shows, and providing a 24/7 booking option for clients. The system benefits both clients, by offering convenient scheduling, and salon owners, by saving time and administrative work.',
+    techStack: ['React','TypeScript', 'CSS', 'JavaScript'],
+    githubUrl: 'https://github.com/sebtully/frisor-booking-system.git'
   },
   {
     title: 'Booking Platform',

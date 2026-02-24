@@ -1,21 +1,31 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 export function AboutSection() {
   return (
-    <section id="om-mig" className="mx-auto w-full max-w-6xl px-6 py-20">
+    <motion.section
+      id="om-mig"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.1 }}
+      className="mx-auto w-full max-w-6xl px-6 py-14 md:py-16"
+    >
       <h2 className="section-title">Om mig</h2>
       <p className="section-subtitle">
-        Jeg er en detaljeorienteret udvikler med stærk interesse for moderne webteknologier.
+        Fullstack-udvikler med baggrund som datamatiker, med stærk interesse for moderne webteknologier.
       </p>
       <div className="mt-8 max-w-3xl space-y-4 text-muted">
         <p>
-          Jeg arbejder med at udvikle intuitive interfaces og robuste frontend-løsninger, der
-          understøtter forretningens mål. Mit fokus er at levere gennemtestede løsninger med høj
-          performance og skalerbar kode.
+          Jeg brænder for at udvikle løsninger, der holder i længden,
+          og som er designet med fokus på struktur, kvalitet og skalerbarhed.
+          Jeg motiveres af at forstå forretningen bag funktionaliteten og omsætte komplekse behov til enkle og robuste tekniske løsninger.
         </p>
         <p>
-          I teams bidrager jeg med struktur, ejerskab og god kommunikation. Jeg trives i et miljø
-          med høje standarder, hvor kvalitet, læring og brugercentreret design er i centrum.
+          Jeg trives i miljøer med høj faglighed, tæt sparring og fælles ansvar for arkitektur og kodekvalitet.
+          Med en struktureret og nysgerrig tilgang arbejder jeg kontinuerligt på at forbedre både løsninger og processer.
         </p>
       </div>
-    </section>
+    </motion.section>
   );
 }

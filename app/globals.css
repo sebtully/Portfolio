@@ -29,7 +29,31 @@ body {
 }
 
 .section-title {
-  @apply text-2xl font-bold md:text-3xl;
+  @apply relative inline-block text-2xl font-bold md:text-3xl;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  height: 2px;
+  width: 100%;
+  background-color: rgb(var(--foreground));
+  opacity: 0.7;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms ease;
+}
+
+.section-title:hover::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-title::after {
+    transition: none;
+  }
 }
 
 .section-subtitle {
