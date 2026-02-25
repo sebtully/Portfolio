@@ -24,7 +24,7 @@ export function HeroSection({ onShowProjects }: HeroSectionProps) {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="mt-4 text-4xl font-bold leading-tight md:text-6xl"
         >
-          Hej, mit navn er Sebastian.
+          Hej, mit navn er Sebastian.<br />
           <span className="text-muted">Jeg brænder for at udvikle moderne software med teknisk kvalitet og forretningsværdi i centrum.</span>
         </motion.h1>
         <motion.p
