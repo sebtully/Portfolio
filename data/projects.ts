@@ -31,7 +31,7 @@ export const projects: Project[] = [
     title: 'Padel Opponent Finder',
     description:
       'A React + Vite web app for discovering padel courts and finding players looking for matches nearby.',
-    techStack: ['vite', 'TypeScript', 'TailwindCSS','React'],
+    techStack: ['React', 'Vite', 'TypeScript', 'TailwindCSS'],
     githubUrl: 'https://github.com/sebtully/Padel-Opponent-Finder-App.git'
   },
 ];
