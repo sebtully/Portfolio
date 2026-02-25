@@ -9,14 +9,14 @@ export const projects: Project[] = [
   {
     title: 'CRM Dashboard',
     description:
-      'Webapp til booking af services med kalenderintegration, notifikationer og admin-panel.',
+      'CRM-dashboard til håndtering af kundebookinger og services — inkl. kalenderintegration (Google/Outlook), automatiserede e-mail/SMS-påmindelser, administrativt panel til bookings, ressourcestyring og rapportering. Fokus på sikkerhed, skalerbarhed og effektiv drift.',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
     githubUrl: 'https://github.com/sebtully/CRM2026.git'
   },
   {
     title: 'Madplan Generator',
     description:
-      'Dashboard med authentication, analytics widgets og rollebaseret adgangskontrol til B2B-kunder.',
+      'Madplan-generator til B2B: personaliserede ugeplaner med opskriftshåndtering, indkøbslister og kostpræferencer. Inkluderer brugerautentifikation, analytics-widgets og rollebaseret adgangskontrol for admin/brugere — designet til at øge engagement og reducere madspild.',
     techStack: ['Next.js','TypeScript', 'CSS', 'JavaScript', 'Prisma'],
     githubUrl: 'https://github.com/sebtully/madplan.git'
   },
@@ -30,8 +30,8 @@ export const projects: Project[] = [
   {
     title: 'Padel Opponent Finder',
     description:
-      'Webapp til booking af services med kalenderintegration, notifikationer og admin-panel.',
-    techStack: ['TypeScript', 'CSS', 'HTML'],
+      'A React + Vite web app for discovering padel courts and finding players looking for matches nearby.',
+    techStack: ['vite', 'TypeScript', 'TailwindCSS','React'],
     githubUrl: 'https://github.com/sebtully/Padel-Opponent-Finder-App.git'
   },
 ];
