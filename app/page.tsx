@@ -6,6 +6,8 @@ import { ContactSection } from '@/components/contact-section';
 import { HeroSection } from '@/components/hero-section';
 import { ProjectsSection } from '@/components/projects-section';
 import { projects } from '@/data/projects';
+import { Analytics } from "@vercel/analytics/next"
+
 
 export default function Home() {
   const [showProjects, setShowProjects] = useState(false);
@@ -33,6 +35,7 @@ export default function Home() {
       {showProjects && <ProjectsSection projects={projects} />}
       <AboutSection />
       <ContactSection />
+      <Analytics />
     </main>
   );
 }
