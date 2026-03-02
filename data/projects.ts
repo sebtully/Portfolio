@@ -3,6 +3,11 @@ export type Project = {
   description: string;
   techStack: string[];
   githubUrl: string;
+  livePreview?: {
+    imageUrl: string;
+    videoUrl: string;
+    alt?: string;
+  };
 };
 
 export const projects: Project[] = [
@@ -26,7 +31,12 @@ export const projects: Project[] = [
     description:
       'CRM-dashboard til håndtering af kundebookinger og services — inkl. kalenderintegration (Google/Outlook), automatiserede e-mail/SMS-påmindelser, administrativt panel til bookings, ressourcestyring og rapportering. Fokus på sikkerhed, skalerbarhed og effektiv drift.',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    githubUrl: ''
+    githubUrl: '',
+    livePreview: {
+      imageUrl: '/media/CRM.jpg',
+      videoUrl: '/media/CRM.mp4',
+      alt: 'Preview af CRM dashboard'
+    }
   },
   {
     title: 'Padel Opponent Finder',

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 
@@ -17,12 +17,14 @@ export function AboutSection() {
       </p>
       <div className="copy-width mt-8 space-y-4 text-muted">
         <p>
-          Jeg brænder for at udvikle løsninger, der holder i længden,
-          og som er designet med fokus på struktur, kvalitet og skalerbarhed. Jeg motiveres af at forstå forretningen bag funktionaliteten og omsætte komplekse behov til enkle og robuste tekniske løsninger.
+          Jeg brænder for at udvikle løsninger, der holder i længden, og som er designet med fokus på struktur,
+          kvalitet og skalerbarhed. Jeg motiveres af at forstå forretningen bag funktionaliteten og omsætte
+          komplekse behov til enkle og robuste tekniske løsninger.
         </p>
         <p>
           Jeg trives i miljøer med høj faglighed, tæt sparring og fælles ansvar for arkitektur og kodekvalitet.
-          Med en struktureret og nysgerrig tilgang arbejder jeg kontinuerligt på at forbedre både løsninger og processer.
+          Med en struktureret og nysgerrig tilgang arbejder jeg kontinuerligt på at forbedre både løsninger og
+          processer.
         </p>
       </div>
     </motion.section>
