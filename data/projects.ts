@@ -7,11 +7,11 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'CRM Dashboard',
+    title: 'Barber Booking System',
     description:
-      'CRM-dashboard til håndtering af kundebookinger og services — inkl. kalenderintegration (Google/Outlook), automatiserede e-mail/SMS-påmindelser, administrativt panel til bookings, ressourcestyring og rapportering. Fokus på sikkerhed, skalerbarhed og effektiv drift.',
-    techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/sebtully/CRM2026.git'
+      'Barber Booking System: En fuldt funktionel bookingplatform for barber saloner, der muliggør online tidsbestilling, kalenderstyring og kundeadministration. Inkluderer en intuitiv brugergrænseflade, e-mail-påmindelser og en administrativ dashboard for effektiv håndtering af bookinger og ressourcer.',
+    techStack: ['React','TypeScript', 'TailwindCSS', 'JavaScript'],
+    githubUrl: 'https://github.com/sebtully/Barber-Booking-System.git'
   },
   {
     title: 'Madplan Generator',
@@ -20,12 +20,13 @@ export const projects: Project[] = [
     techStack: ['Next.js','TypeScript', 'CSS', 'JavaScript', 'Prisma'],
     githubUrl: 'https://github.com/sebtully/madplan.git'
   },
+  
   {
-    title: 'Barber Booking System',
+    title: 'CRM Dashboard',
     description:
-      'Streamlines operations by automating tasks like appointment confirmation,sending reminders to reduce no-shows, and providing a 24/7 booking option for clients. The system benefits both clients, by offering convenient scheduling, and salon owners, by saving time and administrative work.',
-    techStack: ['React','TypeScript', 'CSS', 'JavaScript'],
-    githubUrl: 'https://github.com/sebtully/frisor-booking-system.git'
+      'CRM-dashboard til håndtering af kundebookinger og services — inkl. kalenderintegration (Google/Outlook), automatiserede e-mail/SMS-påmindelser, administrativt panel til bookings, ressourcestyring og rapportering. Fokus på sikkerhed, skalerbarhed og effektiv drift.',
+    techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/sebtully/CRM2026.git'
   },
   {
     title: 'Padel Opponent Finder',
