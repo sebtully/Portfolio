@@ -26,7 +26,7 @@ export const projects: Project[] = [
     description:
       'CRM-dashboard til håndtering af kundebookinger og services — inkl. kalenderintegration (Google/Outlook), automatiserede e-mail/SMS-påmindelser, administrativt panel til bookings, ressourcestyring og rapportering. Fokus på sikkerhed, skalerbarhed og effektiv drift.',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/sebtully/CRM2026.git'
+    githubUrl: ''
   },
   {
     title: 'Padel Opponent Finder',

@@ -9,13 +9,13 @@ export function AboutSection() {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.1 }}
-      className="section-shell py-14 md:py-16"
+      className="section-shell scroll-mt-24 py-14 md:py-16"
     >
       <h2 className="section-title">Om mig</h2>
       <p className="section-subtitle">
         Fullstack-udvikler med baggrund som datamatiker, med stærk interesse for moderne webteknologier.
       </p>
-      <div className="mt-8 max-w-3xl space-y-4 text-muted">
+      <div className="copy-width mt-8 space-y-4 text-muted">
         <p>
           Jeg brænder for at udvikle løsninger, der holder i længden,
           og som er designet med fokus på struktur, kvalitet og skalerbarhed. Jeg motiveres af at forstå forretningen bag funktionaliteten og omsætte komplekse behov til enkle og robuste tekniske løsninger.

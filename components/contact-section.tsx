@@ -13,14 +13,14 @@ export function ContactSection() {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.2 }}
-      className="section-shell py-14 md:py-16"
+      className="section-shell scroll-mt-24 py-14 md:py-16"
     >
       <h2 className="section-title">Kontakt</h2>
       <p className="section-subtitle">
         Jeg er åben for nye muligheder og samarbejder. Skriv gerne, hvis du vil høre mere.
       </p>
 
-      <div className="mt-8 flex flex-col gap-4 text-sm md:flex-row md:items-center md:gap-8">
+      <div className="copy-width mt-8 flex flex-col gap-4 text-sm md:flex-row md:items-center md:gap-8">
         <a
           href={emailHref}
           target="_blank"
@@ -40,6 +40,16 @@ export function ContactSection() {
           linkedin.com/in/sebastian-tully-schmidt
         </a>
       </div>
+      <a
+        href="https://www.linkedin.com/in/sebastian-tully-schmidt-2221961b9/"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Besog min LinkedIn profil"
+        className="linkedin-sticky"
+      >
+        <Linkedin size={16} />
+        LinkedIn
+      </a>
     </motion.section>
   );
 }

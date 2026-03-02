@@ -5,8 +5,9 @@ import { AboutSection } from '@/components/about-section';
 import { ContactSection } from '@/components/contact-section';
 import { HeroSection } from '@/components/hero-section';
 import { ProjectsSection } from '@/components/projects-section';
+import { SiteHeader } from '@/components/site-header';
 import { projects } from '@/data/projects';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from '@vercel/analytics/next';
 
 
 export default function Home() {
@@ -29,12 +30,27 @@ export default function Home() {
     return () => cancelAnimationFrame(raf);
   }, [showProjects]);
 
+  const handleShowProjects = () => {
+    if (showProjects) {
+      document.getElementById('projekter')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      return;
+    }
+
+    setShowProjects(true);
+  };
+
   return (
     <main className="min-h-screen">
-      <HeroSection onShowProjects={() => setShowProjects(true)} />
+      <SiteHeader onShowProjects={handleShowProjects} />
+      <HeroSection onShowProjects={handleShowProjects} />
       {showProjects && <ProjectsSection projects={projects} />}
       <AboutSection />
-      <ContactSection />
+      <footer className="mt-8 border-t border-border bg-card/70">
+        <ContactSection />
+      </footer>
       <Analytics />
     </main>
   );

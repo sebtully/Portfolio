@@ -8,8 +8,8 @@ type HeroSectionProps = {
 
 export function HeroSection({ onShowProjects }: HeroSectionProps) {
   return (
-    <section id="top" className="section-shell flex min-h-[72vh] items-center py-16 md:py-20">
-      <div className="max-w-3xl">
+    <section id="top" className="section-shell flex min-h-[72vh] scroll-mt-24 items-center py-16 md:py-20">
+      <div className="copy-width">
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -24,18 +24,18 @@ export function HeroSection({ onShowProjects }: HeroSectionProps) {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="mt-4 text-4xl font-bold leading-tight md:text-6xl"
         >
-          Hej, mit navn er Sebastian.<br />
-          <span className="text-muted">Jeg brænder for at udvikle moderne software med teknisk kvalitet og forretningsværdi i centrum.</span>
+          Hej, mit navn er Sebastian.
+          <span className="text-muted"> Jeg brænder for at udvikle moderne software med teknisk kvalitet og forretningsværdi i centrum.</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-base text-muted md:text-lg"
+          className="mt-6 text-base text-muted md:text-lg"
         >
           Jeg specialiserer mig i fullstack-udvikling med særligt fokus på backend i C#/.NET og frontend i React/TypeScript.
           Jeg arbejder med at designe og implementere løsninger, hvor struktur, klar arkitektur og vedligeholdbarhed er i centrum.
-          For mig handler god software ikke kun om at få noget til at virke,men om at bygge løsninger,
+          For mig handler god software ikke kun om at få noget til at virke, men om at bygge løsninger,
           der er robuste, testbare og nemme at videreudvikle.
         </motion.p>
         <motion.div
