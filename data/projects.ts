@@ -41,7 +41,7 @@ export const projects: Project[] = [
   {
     title: 'Padel Opponent Finder',
     description:
-      'A React + Vite web app for discovering padel courts and finding players looking for matches nearby.',
+      'En React + Vite web-app til at opdage padel-baner og finde spillere, der søger efter modstandere i nærheden. Forenkler matchmaking for padel-entusiaster med søgefunktionalitet og lokaliseringsbaserede anbefalinger.',
     techStack: ['React', 'Vite', 'TypeScript', 'TailwindCSS'],
     githubUrl: 'https://github.com/sebtully/Padel-Opponent-Finder-App.git'
   },
