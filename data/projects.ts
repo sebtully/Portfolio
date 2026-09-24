@@ -2,47 +2,34 @@ export type Project = {
   title: string;
   description: string;
   techStack: string[];
-  githubUrl: string;
-  livePreview?: {
-    imageUrl: string;
-    videoUrl: string;
-    alt?: string;
-  };
+  githubUrl?: string;
+  liveUrl?: string;
+  livePreview?: { imageUrl: string; videoUrl: string; alt?: string };
 };
 
 export const projects: Project[] = [
   {
     title: 'Barber Booking System',
-    description:
-      'Barber Booking System: En fuldt funktionel bookingplatform for barber saloner, der muliggør online tidsbestilling, kalenderstyring og kundeadministration. Inkluderer en intuitiv brugergrænseflade, e-mail-påmindelser og en administrativ dashboard for effektiv håndtering af bookinger og ressourcer.',
-    techStack: ['React','TypeScript', 'TailwindCSS', 'JavaScript'],
+    description: 'En funktionel bookingplatform for barbersaloner med online tidsbestilling, kalenderstyring og kundeadministration. Løsningen indeholder en intuitiv brugergrænseflade, e-mail-påmindelser og et administrativt dashboard til håndtering af bookinger og ressourcer.',
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'JavaScript'],
     githubUrl: 'https://github.com/sebtully/Barber-Booking-System.git'
   },
   {
-    title: 'Madplan Generator',
-    description:
-      'Madplan-generator til B2B: personaliserede ugeplaner med opskriftshåndtering, indkøbslister og kostpræferencer. Inkluderer brugerautentifikation, analytics-widgets og rollebaseret adgangskontrol for admin/brugere — designet til at øge engagement og reducere madspild.',
-    techStack: ['Next.js','TypeScript', 'CSS', 'JavaScript', 'Prisma'],
-    githubUrl: 'https://github.com/sebtully/madplan.git'
+    title: 'Caretoons',
+    description: 'Overtog en eksisterende WordPress-løsning og migrerede den til en stabil og brugbar hjemmeside. Arbejdet omfattede backup, databaseimport, fejlsøgning af redirects, URL-struktur, REST API, adgangsrettigheder og mixed-content-fejl samt tilpasninger, der gør det lettere for kunden at vedligeholde indhold og produkter.',
+    techStack: ['WordPress', 'Elementor Pro', 'WooCommerce', 'MySQL'],
+    liveUrl: 'https://www.caretoons.dk/'
   },
-  
   {
     title: 'CRM Dashboard',
-    description:
-      'CRM-dashboard til håndtering af kundebookinger og services — inkl. kalenderintegration (Google/Outlook), automatiserede e-mail/SMS-påmindelser, administrativt panel til bookings, ressourcestyring og rapportering. Fokus på sikkerhed, skalerbarhed og effektiv drift.',
+    description: 'CRM-dashboard til håndtering af kundebookinger og services — inkl. kalenderintegration (Google/Outlook), automatiserede e-mail- og SMS-påmindelser, administrativt panel til bookinger, ressourcestyring og rapportering. Fokus på sikkerhed, skalerbarhed og effektiv drift.',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    githubUrl: '',
-    livePreview: {
-      imageUrl: '/media/CRM.jpg',
-      videoUrl: '/media/CRM.mp4',
-      alt: 'Preview af CRM dashboard'
-    }
+    livePreview: { imageUrl: '/media/CRM.jpg', videoUrl: '/media/CRM.mp4', alt: 'Preview af CRM-dashboard' }
   },
   {
     title: 'Padel Opponent Finder',
-    description:
-      'En React + Vite web-app til at opdage padel-baner og finde spillere, der søger efter modstandere i nærheden. Forenkler matchmaking for padel-entusiaster med søgefunktionalitet og lokaliseringsbaserede anbefalinger.',
-    techStack: ['React', 'Vite', 'TypeScript', 'TailwindCSS'],
+    description: 'En React- og Vite-baseret webapp til at opdage padelbaner og finde spillere, der søger modstandere i nærheden. Forenkler matchmaking for padel-entusiaster med søgning og lokaliseringsbaserede anbefalinger.',
+    techStack: ['React', 'Vite', 'TypeScript', 'Tailwind CSS'],
     githubUrl: 'https://github.com/sebtully/Padel-Opponent-Finder-App.git'
-  },
+  }
 ];

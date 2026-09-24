@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Linkedin } from 'lucide-react';
+import { Mail, Linkedin, Phone } from 'lucide-react';
 
 export function ContactSection() {
   const email = 'sebastiantully@gmail.com';
-  const emailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+  const phone = '+45 28 55 32 89';
+  const emailHref = `mailto:${email}`;
 
   return (
     <motion.section
@@ -29,6 +30,13 @@ export function ContactSection() {
         >
           <Mail size={16} />
           {email}
+        </a>
+        <a
+          href="tel:+4528553289"
+          className="inline-flex items-center gap-2 text-muted transition hover:text-foreground"
+        >
+          <Phone size={16} />
+          {phone}
         </a>
         <a
           href="https://www.linkedin.com/in/sebastian-tully-schmidt-2221961b9/"

@@ -38,6 +38,7 @@ export function SiteHeader({ onShowProjects }: SiteHeaderProps) {
     >
       <div className="section-shell flex h-16 items-center justify-between">
         <a href="#top" className="text-sm font-semibold tracking-[0.08em] text-foreground">
+          Sebastian Tully Schmidt
         </a>
 
         <div className="flex items-center gap-3">

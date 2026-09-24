@@ -237,6 +237,16 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                 Se pa GitHub -&gt;
               </a>
             )}
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex text-sm font-medium text-accent transition hover:underline"
+              >
+                Besøg den live side →
+              </a>
+            )}
           </motion.article>
         ))}
       </div>

@@ -18,24 +18,16 @@ export default function Home() {
       return;
     }
 
-    const raf = requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        document.getElementById('projekter')?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      });
+    const frame = requestAnimationFrame(() => {
+      document.getElementById('projekter')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    return () => cancelAnimationFrame(raf);
+    return () => cancelAnimationFrame(frame);
   }, [showProjects]);
 
   const handleShowProjects = () => {
     if (showProjects) {
-      document.getElementById('projekter')?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      document.getElementById('projekter')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
     }
 

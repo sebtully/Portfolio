@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { motion } from 'framer-motion';
 
@@ -13,18 +13,14 @@ export function AboutSection() {
     >
       <h2 className="section-title">Om mig</h2>
       <p className="section-subtitle">
-        Fullstack-udvikler med baggrund som datamatiker, med stærk interesse for moderne webteknologier.
+        Datamatiker og Full Stack Developer med erfaring fra interne systemer, CRM og kundeprojekter.
       </p>
       <div className="copy-width mt-8 space-y-4 text-muted">
         <p>
-          Jeg brænder for at udvikle løsninger, der holder i længden, og som er designet med fokus på struktur,
-          kvalitet og skalerbarhed. Jeg motiveres af at forstå forretningen bag funktionaliteten og omsætte
-          komplekse behov til enkle og robuste tekniske løsninger.
+          Jeg arbejder deltid som Full Stack Developer hos Rosholm Connect, hvor jeg videreudvikler virksomhedens CRM-løsning og er med til at udvikle nye interne systemer, herunder en kommende ERP-løsning. Mine opgaver spænder over frontend, backend, database og integrationer.
         </p>
         <p>
-          Jeg trives i miljøer med høj faglighed, tæt sparring og fælles ansvar for arkitektur og kodekvalitet.
-          Med en struktureret og nysgerrig tilgang arbejder jeg kontinuerligt på at forbedre både løsninger og
-          processer.
+          Tidligere har jeg været i praktik som Full Stack Developer hos Norlys, hvor jeg arbejdede med C#/.NET, React, TypeScript, Azure, DevOps og Entra ID. Jeg lærer hurtigt, går op i kvalitet og motiveres af at omsætte komplekse behov til løsninger, der fungerer i praksis.
         </p>
       </div>
     </motion.section>
