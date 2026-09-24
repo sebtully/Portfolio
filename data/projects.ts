@@ -8,24 +8,25 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+   {
+    title: 'CRM Dashboard',
+    description: 'Et moderne multi-tenant CRM-system med separat Owner-platform, udviklet fra bunden med React, TypeScript, PHP og MySQL. Løsningen samler kundestyring, salgsprocesser, aktiviteter, e-mails og virksomhedsadministration i én sikker og skalerbar platform.',
+    techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
+    livePreview: { imageUrl: '/media/CRMBook.jpg', videoUrl: '/media/CRMBook.mp4', alt: 'Preview af CRM-dashboard' }
+  },
+  {
+    title: 'Caretoons',
+    description: 'Kundesite for Caretoons, som formidler kreative kommunikationsløsninger inden for sundheds- og socialområdet. Jeg har opdateret og færdiggjort den live hjemmeside med fokus på et tydeligt indholdshierarki, nem navigation og en professionel præsentation af deres ydelser.',
+    techStack: ['WordPress', 'WooCommerce', 'CSS', 'JavaScript'],
+    liveUrl: 'https://www.caretoons.dk/'
+  },
   {
     title: 'Barber Booking System',
     description: 'En funktionel bookingplatform for barbersaloner med online tidsbestilling, kalenderstyring og kundeadministration. Løsningen indeholder en intuitiv brugergrænseflade, e-mail-påmindelser og et administrativt dashboard til håndtering af bookinger og ressourcer.',
     techStack: ['React', 'TypeScript', 'Tailwind CSS', 'JavaScript'],
     githubUrl: 'https://github.com/sebtully/Barber-Booking-System.git'
   },
-  {
-    title: 'Caretoons',
-    description: 'Overtog en eksisterende WordPress-løsning og migrerede den til en stabil og brugbar hjemmeside. Arbejdet omfattede backup, databaseimport, fejlsøgning af redirects, URL-struktur, REST API, adgangsrettigheder og mixed-content-fejl samt tilpasninger, der gør det lettere for kunden at vedligeholde indhold og produkter.',
-    techStack: ['WordPress', 'Elementor Pro', 'WooCommerce', 'MySQL'],
-    liveUrl: 'https://www.caretoons.dk/'
-  },
-  {
-    title: 'CRM Dashboard',
-    description: 'CRM-dashboard til håndtering af kundebookinger og services — inkl. kalenderintegration (Google/Outlook), automatiserede e-mail- og SMS-påmindelser, administrativt panel til bookinger, ressourcestyring og rapportering. Fokus på sikkerhed, skalerbarhed og effektiv drift.',
-    techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
-    livePreview: { imageUrl: '/media/CRM.jpg', videoUrl: '/media/CRM.mp4', alt: 'Preview af CRM-dashboard' }
-  },
+  
   {
     title: 'Padel Opponent Finder',
     description: 'En React- og Vite-baseret webapp til at opdage padelbaner og finde spillere, der søger modstandere i nærheden. Forenkler matchmaking for padel-entusiaster med søgning og lokaliseringsbaserede anbefalinger.',
