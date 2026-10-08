@@ -29,3 +29,26 @@ npm run dev
 3. Build command: `npm run build`
 4. Output: automatisk fra Next.js
 
+## Kreativ portfolio
+
+`/creative` er en selvstændig kreativ portfolio; `/creative/cat-teen` viser CAT Teen Campaign. Udviklerportfolioen på `/` bruger fortsat sine oprindelige komponenter og styles.
+
+Kreativ styling er afgrænset af `.creative-shell`. Projekter tilføjes i `data/creative-projects.ts`, og projektsider genereres automatisk ved build.
+
+De tre CAT-videoer skal placeres i `public/media/creative/`. Se [medievejledningen](public/media/creative/README.md) for præcise filnavne, eksportformat og tilføjelse af fremtidige projekter. Manglende videoer får placeholders; tilføjede medier kræver et nyt build/deployment.
+
+Checks (Node.js 22.6+):
+
+```powershell
+npx.cmd tsc --noEmit --incremental false
+npm.cmd run build
+node --experimental-strip-types --test scripts/check-creative.mjs
+```
+
+For også at kontrollere de færdige routes, start `npm.cmd run start -- --port 3100` i en anden terminal og kør:
+
+```powershell
+$env:CREATIVE_TEST_URL = 'http://localhost:3100'
+node --experimental-strip-types --test scripts/check-creative.mjs
+```
+
