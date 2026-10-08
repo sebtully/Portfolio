@@ -3,7 +3,7 @@ import { CreativeFooter, CreativeHeader } from '@/components/creative/shell';
 import './creative.css';
 
 const title = 'Sebastian Tully Schmidt | Video Editor & Graphic Designer';
-const description = 'Kreativ portfolio med videoredigering, grafisk design og kampagnemateriale. Se CAT Teen Campaign og kontakt Sebastian Tully Schmidt.';
+const description = 'Kreativ portfolio med videoredigering, grafisk design og kampagnemateriale. Se projekter fra Grown Up Group og JS Danmark af Sebastian Tully Schmidt.';
 
 export const metadata: Metadata = {
   title: { default: title, template: '%s | Sebastian Tully Schmidt' },

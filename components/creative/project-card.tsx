@@ -10,7 +10,7 @@ export function CreativeProjectCard({ project, index }: { project: CreativeProje
 
   return (
     <article className="creative-project-card">
-      {video && <CreativeVideo {...getCreativeVideo(video.filename)} title={`${project.title} – ${video.title}`} projectTitle={project.title} projectHref={href} />}
+      {video && <div className="creative-project-preview"><CreativeVideo {...getCreativeVideo(video.filename, video.poster)} width={video.width} height={video.height} title={`${project.title} – ${video.title}`} projectTitle={project.title} projectHref={href} /></div>}
       <Link href={href} className="creative-project-caption">
         <span className="creative-project-number">{String(index + 1).padStart(2, '0')}</span>
         <div><h3>{project.title}</h3><p>{project.client} <span aria-hidden="true">/</span> {project.category}</p></div>

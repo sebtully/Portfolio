@@ -14,14 +14,16 @@ export default function CreativeHome() {
         </Reveal>
         <div className="creative-hero-bottom">
           <a href="#work" className="creative-work-link"><span className="creative-round-arrow"><ArrowDown size={19} aria-hidden="true" /></span>Udforsk mit arbejde</a>
-          <p>Jeg hedder Sebastian Tully. Video Editor & Graphic Designer med et øje for det visuelle og en baggrund i softwareudvikling.</p>
+          <p>Video Editor & Graphic Designer med et øje for det visuelle og en baggrund i softwareudvikling.</p>
         </div>
       </section>
 
       <section id="work" className="creative-work" aria-labelledby="work-heading">
         <div className="creative-section-label"><span>01 / SELECTED WORK</span><span>VIDEO & GRAFISK DESIGN</span></div>
         <div className="creative-section-heading"><h2 id="work-heading">Udvalgt arbejde<span className="creative-count">({String(creativeProjects.length).padStart(2, '0')})</span></h2><p>Fra leveret materiale<br />til et færdigt visuelt udtryk.</p></div>
-        {creativeProjects.map((project, index) => <Reveal key={project.slug}><CreativeProjectCard project={project} index={index} /></Reveal>)}
+        <div className="creative-project-grid">
+          {creativeProjects.map((project, index) => <Reveal key={project.slug}><CreativeProjectCard project={project} index={index} /></Reveal>)}
+        </div>
       </section>
 
       <section id="about" className="creative-about" aria-labelledby="about-heading">

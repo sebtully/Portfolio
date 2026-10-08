@@ -33,7 +33,7 @@ export function CreativeFooter() {
       </div>
       <div className="creative-colophon">
         <span>Sebastian Tully Schmidt</span>
-        <Link href="/">Min udviklerportfolio <ArrowUpRight size={14} aria-hidden="true" /></Link>
+        <Link href="/">Mit udviklerportfolio <ArrowUpRight size={14} aria-hidden="true" /></Link>
         <a href="#creative-top">Til toppen ↑</a>
       </div>
     </footer>

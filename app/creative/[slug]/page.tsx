@@ -38,23 +38,23 @@ export default async function CreativeProjectPage({ params }: ProjectPageProps) 
         <Link href="/creative#work" className="creative-back-link"><ArrowLeft size={16} aria-hidden="true" />Tilbage til udvalgt arbejde</Link>
         <div className="creative-section-label"><span>{project.client.toUpperCase()}</span><span>{project.category.toUpperCase()}</span></div>
         <Reveal><h1 id="case-heading">{project.title}</h1></Reveal>
-        <div className="creative-case-intro"><p>{project.summary}</p><a href="#versions" className="creative-text-link">Se versionerne <ArrowDown size={17} aria-hidden="true" /></a></div>
+        <div className="creative-case-intro"><p>{project.summary}</p><a href="#versions" className="creative-text-link">{project.videos.length > 1 ? 'Se versionerne' : 'Se videoen'} <ArrowDown size={17} aria-hidden="true" /></a></div>
       </section>
 
       <section className="creative-case-details" aria-labelledby="project-about-heading">
         <h2 id="project-about-heading" className="creative-eyebrow">OM PROJEKTET</h2>
         <p>{project.description}</p>
-        <dl><div><dt>PRODUCERET FOR</dt><dd>{project.client}</dd></div><div><dt>MIT BIDRAG</dt><dd>{project.roles.join(' · ')}</dd></div><div><dt>UDGANGSPUNKT</dt><dd>Leveret video- og tekstmateriale</dd></div></dl>
+        <dl><div><dt>VIRKSOMHED</dt><dd>{project.client}</dd></div><div><dt>ARBEJDSOMRÅDE</dt><dd>{project.roles.join(' · ')}</dd></div>{project.sourceMaterial && <div><dt>UDGANGSPUNKT</dt><dd>{project.sourceMaterial}</dd></div>}</dl>
       </section>
 
       <section id="versions" className="creative-versions" aria-labelledby="versions-heading">
-        <div className="creative-section-label"><span>KAMPAGNEN / {String(project.videos.length).padStart(2, '0')} VERSIONER</span><span>KLIPNING · GRAFIK · EFTERBEHANDLING</span></div>
-        <div className="creative-section-heading"><h2 id="versions-heading">Samme kampagne.<br /><span className="creative-serif">Flere versioner.</span></h2><p>Se hver version<br />i dit eget tempo.</p></div>
+        <div className="creative-section-label"><span>VIDEO / {String(project.videos.length).padStart(2, '0')} {project.videos.length > 1 ? 'VERSIONER' : 'VERSION'}</span><span>{project.roles.join(' · ').toUpperCase()}</span></div>
+        <div className="creative-section-heading"><h2 id="versions-heading">{project.videos.length > 1 ? <>Ét projekt.<br /><span className="creative-serif">Flere versioner.</span></> : <>Projektet.<br /><span className="creative-serif">I bevægelse.</span></>}</h2><p>Se {project.videos.length > 1 ? 'versionerne' : 'videoen'}<br />i dit eget tempo.</p></div>
         <div className="creative-video-grid">
           {project.videos.map((video, index) => (
             <Reveal key={video.filename} className="creative-video-item">
               <figure>
-                <CreativeVideo {...getCreativeVideo(video.filename)} title={`${project.title} – ${video.title}`} projectTitle={project.title} />
+                <CreativeVideo {...getCreativeVideo(video.filename, video.poster)} width={video.width} height={video.height} title={`${project.title} – ${video.title}`} projectTitle={project.title} />
                 <figcaption><span className="creative-project-number">{String(index + 1).padStart(2, '0')}</span><div><h3>{video.title}</h3><p>{video.note}</p></div></figcaption>
               </figure>
             </Reveal>
