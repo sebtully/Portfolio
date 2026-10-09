@@ -13,9 +13,10 @@ type CreativeVideoProps = {
   width: number;
   height: number;
   poster?: string;
+  trimTop?: number;
 };
 
-export function CreativeVideo({ src, available, title, projectTitle, projectHref, width, height, poster }: CreativeVideoProps) {
+export function CreativeVideo({ src, available, title, projectTitle, projectHref, width, height, poster, trimTop }: CreativeVideoProps) {
   const [failed, setFailed] = useState(false);
   const [ratio, setRatio] = useState(width / height);
 
@@ -26,10 +27,11 @@ export function CreativeVideo({ src, available, title, projectTitle, projectHref
           key={src}
           controls
           playsInline
-          preload="none"
+          preload={poster ? 'none' : 'metadata'}
           width={width}
           height={height}
           poster={poster}
+          style={trimTop ? { clipPath: `inset(${(trimTop / height) * 100}% 0 0)` } : undefined}
           aria-label={title}
           onLoadedMetadata={(event) => {
             const video = event.currentTarget;
@@ -50,13 +52,17 @@ export function CreativeVideo({ src, available, title, projectTitle, projectHref
             <Film size={17} aria-hidden="true" />
             <span>{failed ? 'Videoen kunne ikke indlæses' : 'Video afventer'}</span>
           </div>
-          {projectHref ? (
+          {failed ? (
+            <a href={src} className="creative-media-link">
+              Åbn originalvideoen <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+          ) : projectHref ? (
             <Link href={projectHref} className="creative-media-link">
               Se projektet <ArrowUpRight size={18} aria-hidden="true" />
             </Link>
           ) : (
             <p className="creative-media-footnote">
-              {failed ? 'Prøv at genindlæse siden.' : 'Denne version vises her, når videoen er tilføjet.'}
+              Denne version vises her, når videoen er tilføjet.
             </p>
           )}
         </div>

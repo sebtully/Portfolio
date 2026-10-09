@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { creativeContact, creativeProjects } from '@/data/creative-projects';
+import { creativeContact } from '@/data/creative-projects';
+import { creativeSections } from '@/data/creative-sections';
 
 export function CreativeHeader() {
   return (
@@ -10,9 +11,12 @@ export function CreativeHeader() {
         <span>Sebastian Tully Schmidt<br /><span className="creative-muted">Video Editor & Graphic Creative</span></span>
       </Link>
       <nav aria-label="Kreativ portfolio" className="creative-nav">
-        <Link href="/creative#work">Work<span aria-hidden="true"> ({String(creativeProjects.length).padStart(2, '0')})</span></Link>
-        <Link href="/creative#about">About</Link>
-        <Link href="/creative#contact">Contact <ArrowUpRight size={14} aria-hidden="true" /></Link>
+        {Object.values(creativeSections).map((section) => (
+          <Link key={section.id} href={`/creative#${section.id}`}>
+            {section.navLabel}<span aria-hidden="true"> ({section.number})</span>
+            {section.id === creativeSections.contact.id && <ArrowUpRight size={14} aria-hidden="true" />}
+          </Link>
+        ))}
       </nav>
     </header>
   );
@@ -20,8 +24,8 @@ export function CreativeHeader() {
 
 export function CreativeFooter() {
   return (
-    <footer id="contact" className="creative-contact creative-container">
-      <div className="creative-section-label"><span>03 / CONTACT</span><span>EN GOD IDÉ STARTER MED EN SAMTALE</span></div>
+    <footer id={creativeSections.contact.id} className="creative-contact creative-container">
+      <div className="creative-section-label"><span>{creativeSections.contact.number} / {creativeSections.contact.label}</span><span>EN GOD IDÉ STARTER MED EN SAMTALE</span></div>
       <a href={`mailto:${creativeContact.email}`} className="creative-contact-title">
         Lad os skabe<br /><span className="creative-serif">noget sammen.</span>
         <ArrowUpRight aria-hidden="true" />

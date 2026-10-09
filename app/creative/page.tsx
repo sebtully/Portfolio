@@ -5,6 +5,7 @@ import profilePicture from '@/public/media/Profile Picture/Profilbillede.jpg';
 import { CreativeProjectCard } from '@/components/creative/project-card';
 import { Reveal } from '@/components/creative/reveal';
 import { creativeProjects } from '@/data/creative-projects';
+import { creativeSections } from '@/data/creative-sections';
 
 export default function CreativeHome() {
   return (
@@ -17,28 +18,28 @@ export default function CreativeHome() {
           </Reveal>
           <figure className="creative-portrait">
             <Image src={profilePicture} alt="Portræt af Sebastian Tully Schmidt" sizes="(max-width: 640px) 100px, (max-width: 1000px) 180px, 260px" priority placeholder="blur" />
-            <figcaption>Sebastian Tully Schmidt</figcaption>
           </figure>
         </div>
         <div className="creative-hero-bottom">
-          <a href="#work" className="creative-work-link"><span className="creative-round-arrow"><ArrowDown size={19} aria-hidden="true" /></span>Udforsk mit arbejde</a>
+          <a href={`#${creativeSections.work.id}`} className="creative-work-link"><span className="creative-round-arrow"><ArrowDown size={19} aria-hidden="true" /></span>Udforsk mit arbejde</a>
           <p>Video Editor & Graphic Creative med et øje for det visuelle og en baggrund i softwareudvikling.</p>
         </div>
       </section>
 
-      <section id="work" className="creative-work" aria-labelledby="work-heading">
-        <div className="creative-section-label"><span>01 / SELECTED WORK</span><span>VIDEO & GRAFISK DESIGN</span></div>
+      <section id={creativeSections.work.id} className="creative-work" aria-labelledby="work-heading">
+        <div className="creative-section-label"><span>{creativeSections.work.number} / {creativeSections.work.label}</span><span>VIDEO & GRAFISK DESIGN</span></div>
         <div className="creative-section-heading"><h2 id="work-heading">Udvalgt arbejde<span className="creative-count">({String(creativeProjects.length).padStart(2, '0')})</span></h2><p>Fra leveret materiale<br />til et færdigt visuelt udtryk.</p></div>
         <div className="creative-project-grid">
           {creativeProjects.map((project, index) => <Reveal key={project.slug}><CreativeProjectCard project={project} index={index} /></Reveal>)}
         </div>
       </section>
 
-      <section id="about" className="creative-about" aria-labelledby="about-heading">
-        <div className="creative-section-label"><span>02 / ABOUT</span><span>KREATIVITET MØDER STRUKTUR</span></div>
+      <section id={creativeSections.about.id} className="creative-about" aria-labelledby="about-heading">
+        <div className="creative-section-label"><span>{creativeSections.about.number} / {creativeSections.about.label}</span><span>KREATIVITET MØDER STRUKTUR</span></div>
         <div className="creative-about-grid">
-          <div><span className="creative-eyebrow">LIDT OM MIG</span><h2 id="about-heading">Et visuelt blik.<br /><span className="creative-serif">Et teknisk mindset.</span></h2></div>
+          <h2 id="about-heading">Et visuelt blik.<br /><span className="creative-serif">Et teknisk mindset.</span></h2>
           <div className="creative-about-copy">
+            <h3 className="creative-eyebrow creative-copy-label">LIDT OM MIG</h3>
             <p>Jeg hedder Sebastian Tully Schmidt. Jeg arbejder med videoredigering og grafisk design — fra klipning og grafiske elementer til den sidste visuelle efterbehandling.</p>
             <p>Min baggrund i softwareudvikling giver mig en struktureret tilgang til det kreative arbejde. Jeg er optaget af, hvordan billeder, typografi og bevægelse kan spille sammen i et klart udtryk.</p>
             <div className="mt-7 border-t border-[var(--creative-line)] pt-5">
@@ -52,13 +53,12 @@ export default function CreativeHome() {
               </ul>
             </div>
             <Link href="/" className="creative-text-link">Mød min tekniske side <ArrowUpRight size={17} aria-hidden="true" /></Link>
-          </div>
-        </div>
-        <div className="creative-experience">
-          <div className="creative-experience-label">ERFARING</div>
-          <div>
-            <div className="creative-experience-row"><div><h3>JS Danmark</h3><p>Videoredigering, grafisk design og visuelt indhold til virksomheder.</p></div><span>2023 — 2025</span></div>
-            <div className="creative-experience-row"><div><h3>Grown Up Group</h3><p>Reklamevideoer og kampagnemateriale.</p></div><span>Freelance</span></div>
+            <div className="creative-experience">
+              <h3 className="creative-eyebrow creative-copy-label">ERFARING</h3>
+              <div className="creative-experience-row"><div><h4>JS Danmark</h4><p>Videoredigering, grafisk design og visuelt indhold til virksomheder.</p></div><span>2023 — 2025</span></div>
+              <div className="creative-experience-row"><div><h4>Grown Up Group</h4><p>Reklamevideoer og kampagnemateriale.</p></div><span>Freelance</span></div>
+              <div className="creative-experience-row"><div><h4>Caretoons</h4><p>Freelance · Animation / Visuelt indhold</p></div><span>Freelance</span></div>
+            </div>
           </div>
         </div>
       </section>

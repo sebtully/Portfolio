@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowDown, ArrowLeft } from 'lucide-react';
 import { creativeProjects } from '@/data/creative-projects';
+import { creativeSections } from '@/data/creative-sections';
 import { getCreativeVideo } from '@/lib/creative-media';
 import { CreativeVideo } from '@/components/creative/video';
 import { Reveal } from '@/components/creative/reveal';
@@ -35,7 +36,7 @@ export default async function CreativeProjectPage({ params }: ProjectPageProps) 
   return (
     <main id="creative-main" tabIndex={-1} className="creative-container">
       <section className="creative-case-hero" aria-labelledby="case-heading">
-        <Link href="/creative#work" className="creative-back-link"><ArrowLeft size={16} aria-hidden="true" />Tilbage til udvalgt arbejde</Link>
+        <Link href={`/creative#${creativeSections.work.id}`} className="creative-back-link"><ArrowLeft size={16} aria-hidden="true" />Tilbage til udvalgt arbejde</Link>
         <div className="creative-section-label"><span>{project.client.toUpperCase()}</span><span>{project.category.toUpperCase()}</span></div>
         <Reveal><h1 id="case-heading">{project.title}</h1></Reveal>
         <div className="creative-case-intro"><p>{project.summary}</p><a href="#versions" className="creative-text-link">{project.videos.length > 1 ? 'Se versionerne' : 'Se videoen'} <ArrowDown size={17} aria-hidden="true" /></a></div>
@@ -54,7 +55,7 @@ export default async function CreativeProjectPage({ params }: ProjectPageProps) 
           {project.videos.map((video, index) => (
             <Reveal key={video.filename} className="creative-video-item">
               <figure>
-                <CreativeVideo {...getCreativeVideo(video.filename, video.poster)} width={video.width} height={video.height} title={`${project.title} – ${video.title}`} projectTitle={project.title} />
+                <CreativeVideo {...getCreativeVideo(video.filename, video.poster)} width={video.width} height={video.height} trimTop={video.trimTop} title={`${project.title} – ${video.title}`} projectTitle={project.title} />
                 <figcaption><span className="creative-project-number">{String(index + 1).padStart(2, '0')}</span><div><h3>{video.title}</h3><p>{video.note}</p></div></figcaption>
               </figure>
             </Reveal>
