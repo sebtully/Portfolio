@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { getCreativeVideo } from '../lib/creative-media.ts';
 import { creativeProjects } from '../data/creative-projects.ts';
+import { developerSkills } from '../data/skills.ts';
 
 test('missing media and directories produce placeholders', () => {
   assert.equal(getCreativeVideo('__missing_video_check__.mp4').available, false);
@@ -39,6 +40,9 @@ if (process.env.CREATIVE_TEST_URL) {
       assert.match(html, /<main id="creative-main"/);
       assert.match(html, /sebastiantully@gmail\.com/);
       assert.doesNotMatch(html, /<title>[^<]*Full Stack/);
+      assert.doesNotMatch(html, /Graphic Designer/i);
+      assert.match(html, /Video Editor &amp; Graphic Creative/);
+      if (route === '/creative') assert.match(html, /alt="Portræt af Sebastian Tully Schmidt"/);
       const projects = route === '/creative' ? creativeProjects : creativeProjects.filter(({ slug }) => route.endsWith(`/${slug}`));
       const videos = projects.flatMap(({ videos }) => route === '/creative' ? videos.slice(0, 1) : videos);
       for (const project of projects) assert.ok(html.includes(project.title), project.title);
@@ -53,6 +57,10 @@ if (process.env.CREATIVE_TEST_URL) {
     const html = await home.text();
     assert.match(html, /Hej, mit navn er Sebastian/);
     assert.doesNotMatch(html, /class="creative-shell"/);
+    assert.match(html, /id="kompetencer"/);
+    for (const { items } of developerSkills) {
+      for (const skill of items) assert.ok(html.includes(skill), `Missing developer skill: ${skill}`);
+    }
     assert.equal((await fetch(new URL('/creative/unknown-project', origin))).status, 404);
   });
 

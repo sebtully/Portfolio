@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { CreativeFooter, CreativeHeader } from '@/components/creative/shell';
 import './creative.css';
 
-const title = 'Sebastian Tully Schmidt | Video Editor & Graphic Designer';
+const title = 'Sebastian Tully Schmidt | Video Editor & Graphic Creative';
 const description = 'Kreativ portfolio med videoredigering, grafisk design og kampagnemateriale. Se projekter fra Grown Up Group og JS Danmark af Sebastian Tully Schmidt.';
 
 export const metadata: Metadata = {
   title: { default: title, template: '%s | Sebastian Tully Schmidt' },
   description,
-  keywords: ['Sebastian Tully Schmidt', 'video editor', 'graphic designer', 'videoredigering', 'grafisk design'],
+  keywords: ['Sebastian Tully Schmidt', 'video editor', 'graphic creative', 'videoredigering', 'grafisk design'],
   openGraph: { title, description, siteName: 'Sebastian Tully Schmidt — Creative', locale: 'da_DK', type: 'website' },
   twitter: { card: 'summary', title, description }
 };

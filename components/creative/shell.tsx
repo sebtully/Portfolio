@@ -7,7 +7,7 @@ export function CreativeHeader() {
     <header className="creative-header creative-container">
       <Link href="/creative" className="creative-brand" aria-label="Sebastian Tully Schmidt – kreativ forside">
         <span className="creative-monogram" aria-hidden="true">sts<span>✳</span></span>
-        <span>Sebastian Tully Schmidt<br /><span className="creative-muted">Video Editor & Graphic Designer</span></span>
+        <span>Sebastian Tully Schmidt<br /><span className="creative-muted">Video Editor & Graphic Creative</span></span>
       </Link>
       <nav aria-label="Kreativ portfolio" className="creative-nav">
         <Link href="/creative#work">Work<span aria-hidden="true"> ({String(creativeProjects.length).padStart(2, '0')})</span></Link>

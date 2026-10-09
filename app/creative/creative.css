@@ -38,7 +38,10 @@
 .creative-shell .creative-hero { padding: 55px 0 72px; }
 .creative-shell .creative-hero-kicker { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .creative-shell .creative-hero-index { font-size: 11px; color: var(--creative-muted); }
-.creative-shell .creative-hero h1 { position: relative; margin-top: 38px; font-size: clamp(64px, 8.8vw, 142px); font-weight: 500; line-height: 1.03; letter-spacing: -0.075em; }
+.creative-shell .creative-hero-main { display: grid; grid-template-columns: minmax(0, 1fr) clamp(180px, 20vw, 260px); align-items: center; gap: 48px; margin-top: 38px; }
+.creative-shell .creative-hero h1 { position: relative; font-size: clamp(46px, 7.6vw, 124px); font-weight: 500; line-height: 1.03; letter-spacing: -0.075em; }
+.creative-shell .creative-portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 35%; border-radius: 16px; }
+.creative-shell .creative-portrait figcaption { margin-top: 12px; font-size: 10px; letter-spacing: 0.03em; color: var(--creative-muted); }
 .creative-shell .creative-heading-dot { display: inline-block; margin-left: 0.45em; font-family: Arial, sans-serif; font-weight: 400; font-size: 0.6em; vertical-align: 0.12em; }
 .creative-shell .creative-hero-bottom { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 48px; margin-top: 56px; }
 .creative-shell .creative-hero-bottom > p { max-width: 365px; justify-self: end; font-size: 14px; line-height: 1.8; color: var(--creative-muted); }
@@ -55,7 +58,7 @@
 .creative-shell .creative-media { position: relative; container-type: inline-size; width: 100%; max-width: min(100%, calc(440px * var(--creative-ratio))); margin-inline: auto; aspect-ratio: var(--creative-ratio); background: #e1e2da; }
 .creative-shell .creative-media video { display: block; width: 100%; height: auto; aspect-ratio: var(--creative-ratio); object-fit: contain; background: #252622; border-radius: 2px; }
 .creative-shell .creative-project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 32px; }
-.creative-shell .creative-project-preview { display: grid; align-items: center; min-height: 488px; padding: 24px; background: #e9e8e1; transition: background 200ms ease; }
+.creative-shell .creative-project-preview { display: grid; align-items: center; min-height: 488px; padding: 24px; background: #e9e8e1; border-radius: 16px; transition: background 200ms ease; }
 .creative-shell .creative-project-card:hover .creative-project-preview { background: #e0e0d7; }
 .creative-shell .creative-placeholder { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 5%; background: linear-gradient(120deg, #e5e6df 0%, #d5d7cd 100%); }
 .creative-shell .creative-media-topline { position: absolute; inset: 6% 5% auto; display: flex; justify-content: space-between; gap: 16px; font-size: clamp(7px, 1cqw, 11px); letter-spacing: 0.13em; }
@@ -124,6 +127,7 @@
   .creative-shell .creative-container { width: calc(100% - 64px); }
   .creative-shell .creative-brand { gap: 12px; font-size: 10px; }
   .creative-shell .creative-nav { gap: 20px; }
+  .creative-shell .creative-hero-main { grid-template-columns: minmax(0, 1fr) 180px; gap: 32px; }
   .creative-shell .creative-about-grid,
   .creative-shell .creative-experience { grid-template-columns: 1fr 1fr; gap: 36px; }
   .creative-shell .creative-case-details { grid-template-columns: 1.25fr 1fr; gap: 28px; }
@@ -144,7 +148,11 @@
   .creative-shell .creative-hero { padding: 32px 0 47px; }
   .creative-shell .creative-hero-kicker .creative-eyebrow { max-width: 230px; font-size: 8px; }
   .creative-shell .creative-hero-index { font-size: 9px; }
-  .creative-shell .creative-hero h1 { margin-top: 32px; font-size: clamp(45px, 11.5vw, 73px); line-height: 1.08; }
+  .creative-shell .creative-hero-main { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
+  .creative-shell .creative-hero h1 { font-size: clamp(45px, 11.5vw, 73px); line-height: 1.08; }
+  .creative-shell .creative-portrait { display: flex; align-items: center; gap: 18px; }
+  .creative-shell .creative-portrait img { width: 100px; flex-shrink: 0; }
+  .creative-shell .creative-portrait figcaption { max-width: 150px; margin-top: 0; font-size: 11px; line-height: 1.7; }
   .creative-shell .creative-heading-dot { margin-left: 0.2em; font-size: 0.47em; }
   .creative-shell .creative-hero-bottom { grid-template-columns: 1fr; gap: 28px; margin-top: 30px; }
   .creative-shell .creative-hero-bottom > p { grid-row: 1; max-width: 320px; justify-self: start; font-size: 13px; }

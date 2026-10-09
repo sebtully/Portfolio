@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { developerSkills } from '@/data/skills';
 
 export function AboutSection() {
   return (
@@ -22,6 +23,22 @@ export function AboutSection() {
         <p>
           Tidligere har jeg været i praktik som Full Stack Developer hos Norlys, hvor jeg arbejdede med C#/.NET, React, TypeScript, Azure, DevOps og Entra ID. Jeg lærer hurtigt, går op i kvalitet og motiveres af at omsætte komplekse behov til løsninger, der fungerer i praksis.
         </p>
+      </div>
+      <div id="kompetencer" className="mt-10 scroll-mt-24">
+        <h3 className="text-xl font-semibold">Teknologier & kompetencer</h3>
+        <p className="mt-2 text-sm text-muted">Sprog, frameworks og værktøjer fra mine projekter og min erfaring.</p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {developerSkills.map((category) => (
+            <div key={category.title} className="rounded-2xl border border-border bg-card p-5">
+              <h4 className="text-sm font-semibold">{category.title}</h4>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {category.items.map((skill) => (
+                  <li key={skill} className="rounded-full bg-background px-3 py-1.5 text-xs text-foreground">{skill}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </motion.section>
   );
