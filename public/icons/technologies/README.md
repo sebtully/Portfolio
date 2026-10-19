@@ -1,0 +1,21 @@
+Technology logos from [Devicon v2.17.0](https://github.com/devicons/devicon/tree/v2.17.0), distributed under the included MIT license. Brand marks belong to their respective owners.
+
+- javascript: original
+- typescript: original
+- php: original
+- csharp: original
+- html5: original
+- css3: original
+- react: original
+- nextjs: original
+- tailwindcss: original
+- vitejs: original
+- dotnetcore: original
+- mysql: original
+- postgresql: original
+- azure: original
+- azuredevops: original
+- wordpress: original
+- woocommerce: original
+- git: original
+- vercel: original

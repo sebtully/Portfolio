@@ -11,7 +11,7 @@ export const projects: Project[] = [
    {
     title: 'CRM Dashboard',
     description: 'Et moderne multi-tenant CRM-system med separat Owner-platform, udviklet fra bunden med React, TypeScript, PHP og MySQL. Løsningen samler kundestyring, salgsprocesser, aktiviteter, e-mails og virksomhedsadministration i én sikker og skalerbar platform.',
-    techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
+    techStack: ['React', 'Vite', 'TypeScript', 'PHP', 'MySQL', 'REST API’er', 'Tailwind CSS'],
     livePreview: { imageUrl: '/media/CRMbook-preview.jpg', videoUrl: '/media/CRMBook.mp4', alt: 'Kundeoversigt og aktiviteter i CRM-dashboardet' }
   },
   {

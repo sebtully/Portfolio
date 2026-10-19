@@ -8,6 +8,7 @@ export function HeroSection() {
   return (
     <section className="developer-hero" aria-labelledby="hero-heading">
       <Image src={numberBackdrop} alt="" aria-hidden="true" fill sizes="(max-width: 760px) 2000px, 1280px" className="hero-number-backdrop" />
+      <span className="hero-code-mark hero-code-open" aria-hidden="true">{'{'}</span>
       <div className="section-shell hero-stage">
         <div className="developer-hero-copy">
           <Reveal><h1 id="hero-heading">Hej, jeg er<br />Sebastian.</h1></Reveal>
@@ -34,6 +35,7 @@ export function HeroSection() {
           </div></Reveal>
         </aside>
       </div>
+      <span className="hero-code-mark hero-code-close" aria-hidden="true">{'};'}</span>
     </section>
   );
 }
