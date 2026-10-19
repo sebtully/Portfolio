@@ -1,5 +1,5 @@
-export const creativeSections = {
-  work: { id: 'work', number: '01', label: 'SELECTED WORK', navLabel: 'Work' },
-  about: { id: 'about', number: '02', label: 'ABOUT', navLabel: 'About' },
-  contact: { id: 'contact', number: '03', label: 'CONTACT', navLabel: 'Contact' }
+﻿export const creativeSections = {
+  work: { id: 'work', navLabel: 'Arbejde' },
+  about: { id: 'about', navLabel: 'Om mig' },
+  contact: { id: 'contact', navLabel: 'Kontakt' }
 } as const;

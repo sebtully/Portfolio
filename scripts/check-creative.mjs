@@ -65,11 +65,11 @@ if (process.env.CREATIVE_TEST_URL) {
     }
   });
 
-  test('creative navigation numbers match section labels and anchors', async () => {
+  test('creative navigation labels and anchors stay connected on every project page', async () => {
     const expected = [
-      { id: 'work', nav: 'Work (01)', label: '01 / SELECTED WORK' },
-      { id: 'about', nav: 'About (02)', label: '02 / ABOUT' },
-      { id: 'contact', nav: 'Contact (03)', label: '03 / CONTACT' }
+      { id: 'work', nav: 'Arbejde' },
+      { id: 'about', nav: 'Om mig' },
+      { id: 'contact', nav: 'Kontakt' }
     ];
     for (const route of ['/creative', ...creativeProjects.map(({ slug }) => `/creative/${slug}`)]) {
       const response = await fetch(new URL(route, origin));
@@ -83,8 +83,7 @@ if (process.env.CREATIVE_TEST_URL) {
         assert.equal(link.replace(/<[^>]+>/g, '').trim(), section.nav);
         if (route === '/creative' || section.id === 'contact') {
           assert.equal((html.match(new RegExp(`id="${section.id}"`, 'g')) ?? []).length, 1);
-          const label = html.match(new RegExp(`<(?:section|footer) id="${section.id}"[^>]*>\\s*<div class="creative-section-label"><span>(.*?)</span>`, 's'))?.[1];
-          assert.equal(label, section.label);
+          assert.match(html, new RegExp(`<(?:section|footer) id="${section.id}"[^>]*aria-labelledby="[^"]+"`));
         }
       }
     }
@@ -100,7 +99,7 @@ if (process.env.CREATIVE_TEST_URL) {
       assert.ok(clip, route);
       assert.ok(Math.abs(Number(clip[1]) - 10 / 1080 * 100) < 0.0001);
       if (route === '/creative') {
-        assert.match(html, /<h4>Caretoons<\/h4><p>Freelance · Animation \/ Visuelt indhold<\/p><\/div><span>2024<\/span>/);
+        assert.match(html, /<h4>Caretoons<\/h4><p>Freelance · Animation \/ Visuelt indhold<\/p><\/div><span>Freelance<\/span>/);
       }
     }
   });
@@ -128,7 +127,11 @@ if (process.env.CREATIVE_TEST_URL) {
     const home = await fetch(new URL('/', origin));
     assert.equal(home.status, 200);
     const html = await home.text();
-    assert.match(html, /Hej, mit navn er Sebastian/);
+    assert.match(html, /Hej, jeg er<br\/>Sebastian\./);
+    assert.match(html, /PortfolioProfilBillede/);
+    assert.match(html, /id="projekter"/);
+    assert.match(html, /class="project-preview"/);
+    assert.match(html, /href="\/creative"/);
     assert.doesNotMatch(html, /class="creative-shell"/);
     assert.match(html, /id="kompetencer"/);
     for (const { items } of developerSkills) {

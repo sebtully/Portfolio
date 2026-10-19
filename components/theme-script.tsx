@@ -2,8 +2,7 @@ export function ThemeScript() {
   const script = `
     (() => {
       const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDark = stored ? stored === 'dark' : prefersDark;
+      const isDark = stored === 'dark';
       document.documentElement.classList.toggle('dark', isDark);
     })();
   `;

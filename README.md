@@ -31,7 +31,7 @@ npm run dev
 
 ## Kreativ portfolio
 
-`/creative` er en selvstændig kreativ portfolio; `/creative/cat-teen` viser CAT Teen Campaign. Udviklerportfolioen på `/` bruger fortsat sine oprindelige komponenter og styles.
+`/creative` er en selvstændig kreativ portfolio; `/creative/cat-teen` viser CAT Teen Campaign. Udviklerportfolioen på `/` har sit eget design med lyst/mørkt tema, synlige projekter og en CRM-demo. Begge portfolioer bruger projektets egne billeder og videoer.
 
 Kreativ styling er afgrænset af `.creative-shell`. Projekter tilføjes i `data/creative-projects.ts`, og projektsider genereres automatisk ved build.
 

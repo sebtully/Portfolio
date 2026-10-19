@@ -22,8 +22,9 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label="Skift mellem dark og light mode"
-      className="rounded-full border border-border bg-card p-2 transition hover:scale-105 hover:border-accent"
+      aria-label={isDark ? 'Skift til lyst tema' : 'Skift til mørkt tema'}
+      aria-pressed={isDark}
+      className="icon-button"
     >
       {isDark ? <Sun size={18} /> : <Moon size={18} />}
     </button>

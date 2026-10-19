@@ -1,31 +1,38 @@
-'use client';
+import Image from 'next/image';
+import { ArrowDown, Linkedin } from 'lucide-react';
+import profilePicture from '@/public/media/Profile Picture/PortfolioProfilBillede.png';
+import numberBackdrop from '@/public/media/Backdrop/Number Backdrop.png';
+import { Reveal } from '@/components/creative/reveal';
 
-import { motion } from 'framer-motion';
-
-type HeroSectionProps = { onShowProjects: () => void };
-
-export function HeroSection({ onShowProjects }: HeroSectionProps) {
+export function HeroSection() {
   return (
-    <section id="top" className="section-shell flex min-h-[54vh] scroll-mt-24 items-center py-12 md:py-16">
-      <div className="copy-width">
-        <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
-          Full Stack-Udvikler Portfolio
-        </motion.p>
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="mt-4 text-4xl font-bold leading-tight md:text-6xl">
-          Hej, mit navn er Sebastian.
-          <span className="text-muted"> Jeg brænder for at udvikle moderne software med teknisk kvalitet og forretningsværdi i centrum.</span>
-        </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className="mt-6 text-base text-muted md:text-lg">
-          Jeg er datamatiker og arbejder som Full Stack Developer hos Rosholm Connect. Jeg udvikler interne systemer og videreudvikler en CRM-løsning på tværs af frontend, backend og database — med React, TypeScript, PHP, MySQL og REST API&apos;er som en del af hverdagen.
-        </motion.p>
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="mt-10 flex flex-wrap gap-4">
-          <button type="button" onClick={onShowProjects} aria-controls="projekter" className="rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition hover:opacity-90">
-            Se projekter
-          </button>
-          <a href="#kontakt" className="rounded-full border border-border px-6 py-3 text-sm font-medium transition hover:border-accent">
-            Kontakt mig
-          </a>
-        </motion.div>
+    <section className="developer-hero" aria-labelledby="hero-heading">
+      <Image src={numberBackdrop} alt="" aria-hidden="true" fill sizes="(max-width: 760px) 2000px, 1280px" className="hero-number-backdrop" />
+      <div className="section-shell hero-stage">
+        <div className="developer-hero-copy">
+          <Reveal><h1 id="hero-heading">Hej, jeg er<br />Sebastian.</h1></Reveal>
+          <Reveal><p className="hero-intro">Datamatiker og Full Stack Developer. Jeg bygger interne systemer fra frontend til database.</p></Reveal>
+          <Reveal><a href="#projekter" className="hero-project-link"><span className="hero-scroll-button"><ArrowDown size={24} aria-hidden="true" /></span><span>Se projekter</span></a></Reveal>
+        </div>
+        <Reveal className="hero-portrait">
+          <Image src={profilePicture} alt="Portræt af Sebastian Tully Schmidt" priority sizes="(max-width: 760px) 140vw, (max-width: 1100px) 75vw, 900px" />
+        </Reveal>
+        <aside className="hero-rail" aria-label="Lær mig at kende">
+          <Reveal><div className="hero-note">
+            <h2>Om mig</h2>
+            <p>Jeg arbejder hos Rosholm Connect med CRM, integrationer og nye interne løsninger.</p>
+            <a href="#om-mig" className="hero-note-link">Lær mig at kende</a>
+          </div></Reveal>
+          <Reveal><div className="hero-note">
+            <h2>Mit arbejde</h2>
+            <p>Fra kundesites til systemer, der samler data og gør hverdagens opgaver enklere.</p>
+            <a href="#projekter" className="hero-note-link">Udforsk projekterne</a>
+          </div></Reveal>
+          <Reveal><div className="hero-note">
+            <h2>Find mig</h2>
+            <a href="https://www.linkedin.com/in/sebastian-tully-schmidt-2221961b9/" className="hero-social-link" target="_blank" rel="noreferrer"><Linkedin size={20} aria-hidden="true" /> LinkedIn<span className="sr-only"> (åbner i en ny fane)</span></a>
+          </div></Reveal>
+        </aside>
       </div>
     </section>
   );

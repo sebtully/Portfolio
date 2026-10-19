@@ -1,49 +1,25 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { AboutSection } from '@/components/about-section';
+﻿import { AboutSection } from '@/components/about-section';
 import { ContactSection } from '@/components/contact-section';
 import { HeroSection } from '@/components/hero-section';
+import { HeroScroll } from '@/components/hero-scroll';
 import { ProjectsSection } from '@/components/projects-section';
 import { SiteHeader } from '@/components/site-header';
 import { projects } from '@/data/projects';
 import { Analytics } from '@vercel/analytics/next';
 
-
 export default function Home() {
-  const [showProjects, setShowProjects] = useState(false);
-
-  useEffect(() => {
-    if (!showProjects) {
-      return;
-    }
-
-    const frame = requestAnimationFrame(() => {
-      document.getElementById('projekter')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    return () => cancelAnimationFrame(frame);
-  }, [showProjects]);
-
-  const handleShowProjects = () => {
-    if (showProjects) {
-      document.getElementById('projekter')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
-    }
-
-    setShowProjects(true);
-  };
-
   return (
-    <main className="min-h-screen">
-      <SiteHeader onShowProjects={handleShowProjects} />
-      <HeroSection onShowProjects={handleShowProjects} />
-      {showProjects && <ProjectsSection projects={projects} />}
-      <AboutSection />
-      <footer className="mt-8 border-t border-border bg-card/70">
-        <ContactSection />
-      </footer>
+    <div id="top" className="developer-shell">
+      <a href="#main" className="skip-link">Gå til indhold</a>
+      <SiteHeader />
+      <main id="main" tabIndex={-1}>
+        <HeroScroll hero={<HeroSection />}>
+          <ProjectsSection projects={projects} />
+          <AboutSection />
+        </HeroScroll>
+      </main>
+      <footer className="developer-footer"><ContactSection /></footer>
       <Analytics />
-    </main>
+    </div>
   );
 }

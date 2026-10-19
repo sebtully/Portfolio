@@ -1,63 +1,18 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { Mail, Linkedin, Phone } from 'lucide-react';
+﻿import { Reveal } from '@/components/creative/reveal';
 
 export function ContactSection() {
-  const email = 'sebastiantully@gmail.com';
-  const phone = '+45 28 55 32 89';
-  const emailHref = `mailto:${email}`;
-
   return (
-    <motion.section
-      id="kontakt"
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.2 }}
-      className="section-shell scroll-mt-24 py-14 md:py-16"
-    >
-      <h2 className="section-title">Kontakt</h2>
-      <p className="section-subtitle">
-        Jeg er åben for nye muligheder og samarbejder. Skriv gerne, hvis du vil høre mere.
-      </p>
-
-      <div className="copy-width mt-8 flex flex-col gap-4 text-sm md:flex-row md:items-center md:gap-8">
-        <a
-          href={emailHref}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 text-muted transition hover:text-foreground"
-        >
-          <Mail size={16} />
-          {email}
-        </a>
-        <a
-          href="tel:+4528553289"
-          className="inline-flex items-center gap-2 text-muted transition hover:text-foreground"
-        >
-          <Phone size={16} />
-          {phone}
-        </a>
-        <a
-          href="https://www.linkedin.com/in/sebastian-tully-schmidt-2221961b9/"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 text-muted transition hover:text-foreground"
-        >
-          <Linkedin size={16} />
-          linkedin.com/in/sebastian-tully-schmidt
-        </a>
+    <section id="kontakt" className="section-shell developer-contact" aria-labelledby="contact-heading">
+      <Reveal><h2 id="contact-heading">Lad os tales ved.</h2></Reveal>
+      <div className="contact-content">
+        <Reveal><p>Jeg er åben for nye muligheder og samarbejder. Skriv gerne, hvis du vil høre mere.</p></Reveal>
+        <Reveal><div className="contact-links">
+          <a href="mailto:sebastiantully@gmail.com">sebastiantully@gmail.com</a>
+          <a href="tel:+4528553289">+45 28 55 32 89</a>
+          <a href="https://www.linkedin.com/in/sebastian-tully-schmidt-2221961b9/" target="_blank" rel="noreferrer">LinkedIn<span className="sr-only"> (åbner i en ny fane)</span></a>
+        </div></Reveal>
       </div>
-      <a
-        href="https://www.linkedin.com/in/sebastian-tully-schmidt-2221961b9/"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Besog min LinkedIn profil"
-        className="linkedin-sticky"
-      >
-        <Linkedin size={16} />
-        LinkedIn
-      </a>
-    </motion.section>
+      <div className="developer-colophon"><span>Sebastian Tully Schmidt</span><a href="#top">Til toppen ↑</a></div>
+    </section>
   );
 }

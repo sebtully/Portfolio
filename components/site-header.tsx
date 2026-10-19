@@ -1,107 +1,49 @@
-'use client';
+﻿'use client';
 
-import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { Code2, Menu, X } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 
-type SiteHeaderProps = {
-  onShowProjects: () => void;
-};
-
 const links = [
+  { href: '#projekter', label: 'Projekter' },
   { href: '#om-mig', label: 'Om mig' },
+  { href: '/creative', label: 'Kreativ portfolio' },
   { href: '#kontakt', label: 'Kontakt' }
 ];
 
-export function SiteHeader({ onShowProjects }: SiteHeaderProps) {
+export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const onScroll = () => {
-      setIsScrolled(window.scrollY > 8);
+    if (!isMenuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+        menuButton.current?.focus();
+      }
     };
-
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [isMenuOpen]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b transition-colors ${
-        isScrolled
-          ? 'border-border bg-background/95 backdrop-blur'
-          : 'border-transparent bg-background/80'
-      }`}
-    >
-      <div className="section-shell flex h-16 items-center justify-between">
-        <a href="#top" className="text-sm font-semibold tracking-[0.08em] text-foreground">
-          Sebastian Tully Schmidt
-        </a>
-
-        <div className="flex items-center gap-3">
-          <nav className="hidden items-center gap-6 md:flex">
-            <button
-              type="button"
-              onClick={onShowProjects}
-              className="text-sm text-muted transition hover:text-foreground"
-            >
-              Projekter
-            </button>
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted transition hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
+    <header className="developer-header">
+      <div className="section-shell header-row">
+        <a href="#top" className="developer-brand"><Code2 size={22} aria-hidden="true" /><span>Sebastian Tully Schmidt</span></a>
+        <nav className="desktop-nav" aria-label="Hovednavigation">
+          {links.map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}
+        </nav>
+        <div className="header-controls">
           <ThemeToggle />
-
-          <button
-            type="button"
-            aria-label="Aabn menu"
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen((current) => !current)}
-            className="inline-flex rounded-full border border-border bg-card p-2 text-muted transition hover:border-accent hover:text-foreground md:hidden"
-          >
-            {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+          <button ref={menuButton} type="button" aria-label={isMenuOpen ? 'Luk menu' : 'Åbn menu'} aria-expanded={isMenuOpen} aria-controls="mobile-navigation" onClick={() => setIsMenuOpen(!isMenuOpen)} className="icon-button menu-toggle">
+            {isMenuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
           </button>
         </div>
       </div>
-
-      <nav
-        className={`overflow-hidden border-t border-border/60 bg-card transition-all duration-200 md:hidden ${
-          isMenuOpen ? 'max-h-56 opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="section-shell flex flex-col gap-1 py-3">
-          <button
-            type="button"
-            onClick={() => {
-              onShowProjects();
-              setIsMenuOpen(false);
-            }}
-            className="rounded-lg px-2 py-2 text-left text-sm text-muted transition hover:bg-background hover:text-foreground"
-          >
-            Projekter
-          </button>
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsMenuOpen(false)}
-              className="rounded-lg px-2 py-2 text-sm text-muted transition hover:bg-background hover:text-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+      <nav id="mobile-navigation" hidden={!isMenuOpen} className="mobile-nav section-shell" aria-label="Mobilnavigation">
+        {links.map((link) => <Link key={link.href} href={link.href} onClick={() => setIsMenuOpen(false)}>{link.label}</Link>)}
       </nav>
     </header>
   );
