@@ -21,15 +21,18 @@ export function HeroScroll({ hero, children }: { hero: ReactNode; children: Reac
     setCovered(false);
     if (reducedMotion) return;
 
-    // Let tall mobile heroes scroll fully into view before they stick.
     const measure = () => {
       const contentTop = contentElement.getBoundingClientRect().top + window.scrollY;
-      heroElement.inert = window.scrollY >= contentTop;
+      const heroHeight = heroElement.getBoundingClientRect().height;
+      // Pin at the initial position; tall heroes pin once their bottom is visible.
+      const top = Math.min(contentTop - heroHeight, window.innerHeight - heroHeight);
+      const end = contentTop - Math.max(0, top);
+      heroElement.inert = window.scrollY >= end;
       setCovered(heroElement.inert);
       setLayout({
-        top: Math.min(24, window.innerHeight - heroElement.offsetHeight - 24),
+        top,
         start: Math.max(0, contentTop - window.innerHeight),
-        end: contentTop
+        end
       });
     };
     const observer = new ResizeObserver(measure);
@@ -55,7 +58,12 @@ export function HeroScroll({ hero, children }: { hero: ReactNode; children: Reac
         ref={heroRef}
         className="hero-backdrop"
         data-sticky={!reducedMotion && layout && !covered ? '' : undefined}
-        style={reducedMotion ? undefined : { top: covered ? undefined : layout?.top, opacity }}
+        style={reducedMotion ? undefined : {
+          top: covered ? undefined : layout?.top,
+          opacity,
+          // Releasing sticky positioning would otherwise expose the hero above the header.
+          visibility: covered ? 'hidden' : 'visible'
+        }}
         onFocusCapture={() => {
           if (!reducedMotion && scrollYProgress.get() > 0) window.scrollTo({ top: 0, behavior: 'instant' });
         }}
