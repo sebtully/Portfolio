@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from 'motion/react';
 
 export function HeroScroll({ hero, children }: { hero: ReactNode; children: ReactNode }) {
   const heroRef = useRef<HTMLDivElement>(null);

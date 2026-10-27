@@ -67,6 +67,7 @@ if (process.env.CREATIVE_TEST_URL) {
 
   test('creative navigation labels and anchors stay connected on every project page', async () => {
     const expected = [
+      { id: 'ai-process', nav: 'AI & proces' },
       { id: 'work', nav: 'Arbejde' },
       { id: 'about', nav: 'Om mig' },
       { id: 'contact', nav: 'Kontakt' }
@@ -80,7 +81,7 @@ if (process.env.CREATIVE_TEST_URL) {
       for (const section of expected) {
         const link = nav.match(new RegExp(`<a\\b[^>]*href="/creative#${section.id}"[^>]*>(.*?)</a>`, 's'))?.[1];
         assert.ok(link, `${route}: ${section.id}`);
-        assert.equal(link.replace(/<[^>]+>/g, '').trim(), section.nav);
+        assert.equal(link.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim(), section.nav);
         if (route === '/creative' || section.id === 'contact') {
           assert.equal((html.match(new RegExp(`id="${section.id}"`, 'g')) ?? []).length, 1);
           assert.match(html, new RegExp(`<(?:section|footer) id="${section.id}"[^>]*aria-labelledby="[^"]+"`));
@@ -99,9 +100,39 @@ if (process.env.CREATIVE_TEST_URL) {
       assert.ok(clip, route);
       assert.ok(Math.abs(Number(clip[1]) - 10 / 1080 * 100) < 0.0001);
       if (route === '/creative') {
-        assert.match(html, /<h4>Caretoons<\/h4><p>Freelance · Animation \/ Visuelt indhold<\/p><\/div><span>Freelance<\/span>/);
+        assert.match(html, /<span>Caretoons<\/span>/);
+        assert.match(html, /<p>Freelance · Animation \/ Visuelt indhold<\/p>/);
       }
     }
+  });
+
+  test('animated creative content has complete server-rendered text and accessible controls', async () => {
+    const html = await (await fetch(new URL('/creative', origin))).text();
+    const about = html.slice(html.indexOf('id="about"'));
+    assert.match(html, /class="sr-only">I bevægelse\.<\/span>/);
+    assert.match(about, /role="tablist"[^>]*aria-label="Kreative værktøjer"/);
+    assert.equal((about.match(/role="tab"/g) ?? []).length, 2);
+    const graphicsFallback = about.match(/<noscript>(.*?)<\/noscript>/s)?.[1];
+    assert.ok(graphicsFallback);
+    for (const tool of ['After Effects', 'Photoshop', 'Illustrator']) assert.ok(graphicsFallback.includes(tool));
+    for (const tool of ['Premiere Pro', 'Media Encoder']) assert.ok(html.includes(tool));
+    assert.equal((about.match(/data-slot="accordion-trigger"/g) ?? []).length, 3);
+    assert.equal((about.match(/aria-expanded="true"/g) ?? []).length, 3);
+    for (const description of [
+      'Videoredigering, grafisk design og visuelt indhold til virksomheder.',
+      'Reklamevideoer og kampagnemateriale.',
+      'Freelance · Animation / Visuelt indhold'
+    ]) assert.ok(html.includes(description));
+  });
+
+  test('AI example waits for send and keeps images and process details out of its initial markup', async () => {
+    const html = await (await fetch(new URL('/creative', origin))).text();
+    const section = html.match(/<section id="ai-process"[\s\S]*?<\/section>/)?.[0];
+    assert.ok(section);
+    assert.match(section, /Afspil eksempel/);
+    assert.match(section, /aria-label="Send prompt og vis det gemte originalbillede"/);
+    assert.doesNotMatch(section, /<img\b/);
+    assert.doesNotMatch(section, /class="creative-ai-process"/);
   });
 
   test('creative pages render without JavaScript and preserve the developer route', async () => {

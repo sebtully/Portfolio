@@ -1,5 +1,6 @@
 ﻿import Link from 'next/link';
 import { creativeContact } from '@/data/creative-projects';
+import { Linkedin, Mail, Phone } from 'lucide-react';
 import { creativeSections } from '@/data/creative-sections';
 import { Reveal } from './reveal';
 
@@ -21,9 +22,9 @@ export function CreativeFooter() {
     <footer id={creativeSections.contact.id} className="creative-contact creative-container" aria-labelledby="creative-contact-heading">
       <Reveal><h2 id="creative-contact-heading"><a href={`mailto:${creativeContact.email}`} className="creative-contact-title">Lad os skabe<br />noget sammen.</a></h2></Reveal>
       <Reveal><div className="creative-contact-links">
-        <a href={`mailto:${creativeContact.email}`}>{creativeContact.email}</a>
-        <a href={creativeContact.phoneHref}>{creativeContact.phone}</a>
-        <a href={creativeContact.linkedin} target="_blank" rel="noreferrer">LinkedIn<span className="sr-only"> (åbner i en ny fane)</span></a>
+        <a href={`mailto:${creativeContact.email}`}><Mail size={20} strokeWidth={1.6} aria-hidden="true" /><span>{creativeContact.email}</span></a>
+        <a href={creativeContact.phoneHref}><Phone size={20} strokeWidth={1.6} aria-hidden="true" /><span>{creativeContact.phone}</span></a>
+        <a href={creativeContact.linkedin} target="_blank" rel="noreferrer"><Linkedin size={20} strokeWidth={1.6} aria-hidden="true" /><span>LinkedIn<span className="sr-only"> (åbner i en ny fane)</span></span></a>
       </div></Reveal>
       <div className="creative-colophon"><span>Sebastian Tully Schmidt</span><Link href="/">Mit udviklerportfolio</Link><a href="#creative-top">Til toppen ↑</a></div>
     </footer>
